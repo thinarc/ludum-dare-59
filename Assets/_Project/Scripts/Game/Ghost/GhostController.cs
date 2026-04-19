@@ -65,6 +65,7 @@ namespace _Project.Scripts.Game.Ghost
 
             _sprite.DOColor(Color.gray2, 2f).SetEase(Ease.InOutSine);
             await _sprite.DOFade(0, 2f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
+            if (!gameObject) return;
             Destroy(gameObject);
         }
 
