@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{1e4e3036-290c-4ddf-bb92-da7624e02678}">
+		<property name="name">
+			<value>Hover</value>
+		</property>
+		<relationship name="folder">
+			<destination>{124b8764-a8d8-4ae2-829a-bbd128200aae}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{da8c8591-3e0c-463d-a2f8-442ca1caec55}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{da8c8591-3e0c-463d-a2f8-442ca1caec55}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{750d0e1b-5f88-4387-a248-acadc635dcbb}">
+		<property name="assetPath">
+			<value>Radio/Turn_Off.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.61824999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd06973-6e87-41fd-a696-1ab63f922a5a}</destination>
+		</relationship>
+	</object>
+</objects>

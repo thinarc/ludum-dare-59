@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e1a9be64-bf4d-40a8-903c-db2fb481115a}">
+		<property name="assetPath">
+			<value>Ghosts scream/ViolinScream.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.7913125000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd06973-6e87-41fd-a696-1ab63f922a5a}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{7bc0980b-6bce-459d-af28-7e236bc686ac}">
+		<property name="assetPath">
+			<value>Ghosts scream/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd06973-6e87-41fd-a696-1ab63f922a5a}</destination>
+		</relationship>
+	</object>
+</objects>

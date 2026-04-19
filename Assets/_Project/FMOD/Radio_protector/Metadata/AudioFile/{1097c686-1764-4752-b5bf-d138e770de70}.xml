@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{1097c686-1764-4752-b5bf-d138e770de70}">
+		<property name="assetPath">
+			<value>Player/Beam former.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>9.2734791666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd06973-6e87-41fd-a696-1ab63f922a5a}</destination>
+		</relationship>
+	</object>
+</objects>
