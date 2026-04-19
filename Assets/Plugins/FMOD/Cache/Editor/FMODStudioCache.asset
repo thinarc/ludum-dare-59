@@ -1,5 +1,321 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8958512593674322670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Beam former
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Player/Beam former
+  Guid:
+    Data1: 23519005
+    Data2: 1144328184
+    Data3: 88474538
+    Data4: -2125930169
+  Banks:
+  - {fileID: 8415802342184523730}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9273
+--- !u!114 &-8656597377716647469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ghost/Killed the ghost 3
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ghost/Killed the ghost 3
+  Guid:
+    Data1: -728282789
+    Data2: 1209381191
+    Data3: -935233389
+    Data4: 2110418921
+  Banks:
+  - {fileID: 4670615272106371007}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4791
+--- !u!114 &-6101813276334487274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MainMenu/Main_theme
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MainMenu/Main_theme
+  Guid:
+    Data1: -381425125
+    Data2: 1257993900
+    Data3: -221597291
+    Data4: 234375028
+  Banks:
+  - {fileID: 9204520861690091848}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2605409015309132796}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25806
+--- !u!114 &-5527474473455790950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Focus is missing
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Player/Focus is missing
+  Guid:
+    Data1: 642165012
+    Data2: 1100349435
+    Data3: -1914466394
+    Data4: -1954210466
+  Banks:
+  - {fileID: 8415802342184523730}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3594
+--- !u!114 &-3585949346155333435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MainMenu/Click
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MainMenu/Click
+  Guid:
+    Data1: -13027006
+    Data2: 1105641884
+    Data3: -1162019670
+    Data4: 1306433634
+  Banks:
+  - {fileID: 9204520861690091848}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-3532896960544520243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Radio/Turn_on
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Radio/Turn_on
+  Guid:
+    Data1: -595296046
+    Data2: 1226819422
+    Data3: 594995840
+    Data4: -1026738527
+  Banks:
+  - {fileID: 2238785845247885268}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 618
+--- !u!114 &-3200377781919185551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639122217200431284
+  FileSizes:
+  - Name: Desktop
+    Value: 1668
+  Exists: 1
+--- !u!114 &-2605409015309132796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Main_theme/Hover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Hover
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3910766509
+    data2: 2231170672
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-1770963953567121442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ghost/Killed the ghost 1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ghost/Killed the ghost 1
+  Guid:
+    Data1: -1254331517
+    Data2: 1333887508
+    Data3: -991840065
+    Data4: -796124110
+  Banks:
+  - {fileID: 4670615272106371007}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6491
+--- !u!114 &-1166291110428015276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ghost/Killed the ghost 2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ghost/Killed the ghost 2
+  Guid:
+    Data1: -757677951
+    Data2: 1169936818
+    Data3: 1961121983
+    Data4: -976967506
+  Banks:
+  - {fileID: 4670615272106371007}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6182
+--- !u!114 &-1042928557018735014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Radio/Const_noise
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Radio/Const_noise
+  Guid:
+    Data1: -1674585730
+    Data2: 1167408090
+    Data3: 1825297066
+    Data4: -1858685491
+  Banks:
+  - {fileID: 2238785845247885268}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5255
+--- !u!114 &-703767122157530336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Radio/Searching
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Radio/Searching
+  Guid:
+    Data1: 604269312
+    Data2: 1236179960
+    Data3: 449311402
+    Data4: 963556727
+  Banks:
+  - {fileID: 2238785845247885268}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9088221189756885449}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5255
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,11 +328,334 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -3200377781919185551}
+  - {fileID: 4670615272106371007}
+  - {fileID: 5132035196401889175}
+  - {fileID: 9204520861690091848}
+  - {fileID: 6227469271938543477}
+  - {fileID: 8415802342184523730}
+  - {fileID: 2238785845247885268}
+  EditorEvents:
+  - {fileID: -8656597377716647469}
+  - {fileID: -1166291110428015276}
+  - {fileID: -1770963953567121442}
+  - {fileID: -6101813276334487274}
+  - {fileID: -3585949346155333435}
+  - {fileID: 8947621168171676829}
+  - {fileID: -5527474473455790950}
+  - {fileID: -8958512593674322670}
+  - {fileID: 6789910586389976231}
+  - {fileID: -703767122157530336}
+  - {fileID: 289161733372481437}
+  - {fileID: -1042928557018735014}
+  - {fileID: -3532896960544520243}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
+  MasterBanks:
+  - {fileID: 5132035196401889175}
+  StringsBanks:
+  - {fileID: -3200377781919185551}
   cacheVersion: 131858
-  cacheTime: 0
-  SerializableEventsDict: []
+  cacheTime: 639122217212240450
+  SerializableEventsDict:
+  - key: event:/Appears/Rabbit_App 3
+    index: 0
+  - key: event:/Appears/Girl
+    index: 1
+  - key: event:/Appears/Rabbit_App 2
+    index: 2
+  - key: event:/Appears/Rabbit_App 1
+    index: 3
+  - key: event:/Music/Menu/Hovers
+    index: 4
+  - key: event:/Music/Menu/Click
+    index: 5
+  - key: event:/Music/Menu/Main_Menu
+    index: 6
+  - key: event:/Music/Menu/EXIT
+    index: 7
+  - key: event:/Music/EV_Amb
+    index: 8
+  - key: event:/Music/Noise
+    index: 9
+  - key: event:/Music/Amb+Noise
+    index: 10
+  - key: event:/Act_QTE/Hit
+    index: 11
+  - key: event:/Act_QTE/Slide
+    index: 12
+  - key: event:/Act_QTE/Fail
+    index: 13
+  - key: event:/Act_QTE/Start OSU
+    index: 14
+  - key: event:/Act_QTE/Soft Hit
+    index: 15
+  - key: event:/Player/Open_wounds
+    index: 16
+  - key: event:/Player/Letter
+    index: 17
+  - key: event:/Player/Footsteps
+    index: 18
+  - key: event:/Player/O_note
+    index: 19
+  - key: event:/Player/C_note
+    index: 20
+  - key: event:/QTE Sound/Loosing Myself
+    index: 21
+  - key: event:/QTE Sound/The Last Efforts
+    index: 22
+  - key: event:/QTE Sound/Foggy mind
+    index: 23
+  - key: event:/Phrases/Beggining 2
+    index: 24
+  - key: event:/Phrases/Beggining 1
+    index: 25
+  - key: event:/Phrases/After killing rabbit 2
+    index: 26
+  - key: event:/Phrases/1st_killed
+    index: 27
+  - key: event:/Phrases/Before 1st OSU
+    index: 28
+  - key: event:/Phrases/Close
+    index: 29
+  - key: event:/Phrases/After Osu 1
+    index: 30
+  - key: event:/Phrases/After 2nd OSU
+    index: 31
+  - key: event:/Phrases/After killing rabbit 1
+    index: 32
+  - key: event:/Phrases/After 3d OSU
+    index: 33
+  - key: event:/Phrases/Final
+    index: 34
+  - key: event:/Phrases/After 1st OSU
+    index: 35
+  - key: event:/Phrases/After Osu 2
+    index: 36
+  - key: event:/Phrases/After killing rabbit 3
+    index: 37
+--- !u!114 &289161733372481437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Radio/Turn_off
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Radio/Turn_off
+  Guid:
+    Data1: 376611637
+    Data2: 1086609589
+    Data3: 215538091
+    Data4: 1777595822
+  Banks:
+  - {fileID: 2238785845247885268}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 618
+--- !u!114 &2238785845247885268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Radio.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Radio.bank
+  Name: Radio
+  StudioPath: bank:/Radio
+  lastModified: 639122217212240450
+  FileSizes:
+  - Name: Desktop
+    Value: 102176
+  Exists: 1
+--- !u!114 &4670615272106371007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ghost.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Ghost.bank
+  Name: Ghost
+  StudioPath: bank:/Ghost
+  lastModified: 639122217200396405
+  FileSizes:
+  - Name: Desktop
+    Value: 169312
+  Exists: 1
+--- !u!114 &5132035196401889175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639122217200418533
+  FileSizes:
+  - Name: Desktop
+    Value: 1074
+  Exists: 1
+--- !u!114 &6227469271938543477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639122217210035284
+  FileSizes:
+  - Name: Desktop
+    Value: 511008
+  Exists: 1
+--- !u!114 &6789910586389976231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Take a focus
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Player/Take a focus
+  Guid:
+    Data1: 2117075408
+    Data2: 1153879041
+    Data3: 583043982
+    Data4: -341092382
+  Banks:
+  - {fileID: 8415802342184523730}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 618
+--- !u!114 &8415802342184523730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Player.bank
+  Name: Player
+  StudioPath: bank:/Player
+  lastModified: 639122217211422565
+  FileSizes:
+  - Name: Desktop
+    Value: 161280
+  Exists: 1
+--- !u!114 &8947621168171676829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Locked
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Locked
+  Guid:
+    Data1: -667481173
+    Data2: 1231523321
+    Data3: 2018630067
+    Data4: -1592363407
+  Banks:
+  - {fileID: 6227469271938543477}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 46000
+--- !u!114 &9088221189756885449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Searching/Rolling the knob
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Rolling the knob
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3077573759
+    data2: 3989085196
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &9204520861690091848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Menu.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Menu.bank
+  Name: Menu
+  StudioPath: bank:/Menu
+  lastModified: 639122217204346072
+  FileSizes:
+  - Name: Desktop
+    Value: 365888
+  Exists: 1

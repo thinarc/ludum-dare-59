@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - PointCam
+  - GhostTarget1
+  - GhostTarget2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GhostCatcher
   - Water
   - UI
   - 

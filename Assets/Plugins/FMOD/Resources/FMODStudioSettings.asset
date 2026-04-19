@@ -463,8 +463,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: Assets/_Project/FMOD/Radio_protector/Radio_protector.fspro
+  sourceBankPath: Assets/_Project/FMOD/Radio_protector/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -486,8 +486,14 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master
+  Banks:
+  - Ghost
+  - Menu
+  - Music
+  - Player
+  - Radio
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
