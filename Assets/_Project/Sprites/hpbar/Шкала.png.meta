@@ -119,10 +119,10 @@ TextureImporter:
       name: "\u0428\u043A\u0430\u043B\u0430_0"
       rect:
         serializedVersion: 2
-        x: 251
-        y: 311
-        width: 735
-        height: 337
+        x: 0
+        y: 0
+        width: 733
+        height: 297
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,7 +149,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "\u0428\u043A\u0430\u043B\u0430_0": 6653093645650116802
       "\u0428\u043A\u0430\u043B\u0430_1": 2841435388322400924

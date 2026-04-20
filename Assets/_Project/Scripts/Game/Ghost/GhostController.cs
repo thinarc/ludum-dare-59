@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -45,7 +46,7 @@ namespace _Project.Scripts.Game.Ghost
             if (!_absorb && (transform.position - _target.position).sqrMagnitude < 0.01f) AbsorbSelf();
             else if (!_damaged && _absorb && (transform.position - _target.position).sqrMagnitude < 0.01f)
             {
-                print("damage player");
+                PlayerStats.Instance.TakeDamage();
                 _damaged = true;
             }
         }
@@ -65,8 +66,15 @@ namespace _Project.Scripts.Game.Ghost
 
             _sprite.DOColor(Color.gray2, 2f).SetEase(Ease.InOutSine);
             await _sprite.DOFade(0, 2f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
-            if (!gameObject) return;
-            Destroy(gameObject);
+            try
+            {
+                Destroy(gameObject);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private async void HideSelf()
@@ -75,7 +83,15 @@ namespace _Project.Scripts.Game.Ghost
             
             _sprite.DOColor(Color.white, 1f).SetEase(Ease.InOutSine);
             await _sprite.DOFade(0, 1f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
-            Destroy(gameObject);
+            try
+            {
+                Destroy(gameObject);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
         
         public async void TakeDamage(int damage, float delay)

@@ -27,12 +27,13 @@ namespace _Project.Scripts.Game.Radio
             if (Input.GetKey(KeyCode.A)) input = 1f;
 
             _currentRot += input * speedRot * Time.deltaTime;
-            _currentRot = Mathf.Clamp(_currentRot, -90f, 90f);
+            _currentRot = Mathf.Clamp(_currentRot, -120f, 120f);
             
             var shape = _waveSystem.shape;
             shape.rotation = new Vector3(0f, 0f, _currentRot);
-            
-            handle.transform.rotation = Quaternion.Euler(0f, 0f, _currentRot);
+
+            var handleRot = _currentRot / 2f;
+            handle.transform.rotation = Quaternion.Euler(0f, 0f, handleRot);
         }
         
         private void OnParticleCollision(GameObject other)
