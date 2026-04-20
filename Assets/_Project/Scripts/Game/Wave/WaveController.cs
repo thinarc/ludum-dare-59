@@ -5,6 +5,7 @@ using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Game.Wave
@@ -29,24 +30,32 @@ namespace _Project.Scripts.Game.Wave
         [SerializeField, Space(5)] private Animator crow;
         
         public void ChangeState() => battle = !battle;
+        private bool _disable;
 
         private void Start()
         {
             PlayerController.Instance.PlayerDeath += OnPlayerDeath;
             ToIdle(true);
+            _disable = false;
         }
 
-        private void OnPlayerDeath()
+        private async void OnPlayerDeath()
         {
             print("игрокумер");
+            _disable = true;
+            await LightSetup.Instance.SetupLight(0f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
         private void Update()
         {
+            if (_disable) return;
             if (battle && !_battle) ToBattle();
             else if (!battle && _battle) ToIdle();
-            
+
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F)) ChangeState();
+#endif
         }
 
         private async void StartTimer()
@@ -67,7 +76,7 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = true;
             PlayerController.Instance.ToBattle();
-            LightSetup.Instance.SetupLight(0.3f);
+            LightSetup.Instance.SetupLight(0.3f).Forget();
             crow.SetBool("hide", false);
 
             StartTimer();
@@ -91,7 +100,7 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = false;
             PlayerController.Instance.ToIdle();
-            LightSetup.Instance.SetupLight(0.4f);
+            LightSetup.Instance.SetupLight(0.4f).Forget();
             crow.SetBool("hide", true);
             
             _ghosts.ForEach(g => { if (g) Destroy(g); });

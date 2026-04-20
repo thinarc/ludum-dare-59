@@ -20,7 +20,7 @@ namespace _Project.Scripts.Game.Wave
             _global.intensity = 0f;
         }
         
-        public async void SetupLight(float intensity)
+        public async UniTask SetupLight(float intensity)
         {
             while (!Mathf.Approximately(_global.intensity, intensity))
             {

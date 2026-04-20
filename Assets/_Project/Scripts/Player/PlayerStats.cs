@@ -31,6 +31,12 @@ namespace _Project.Scripts.Player
             _hp = MaxHp;
         }
 
+        public void TakeHeal()
+        {
+            if (_hp <= 0) return;
+            _hp++;
+        }
+
         public async void TakeDamage()
         {
             if (_hp <= 0) return;

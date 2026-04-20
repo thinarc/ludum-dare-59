@@ -90,6 +90,24 @@ public class HoverZoomTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
     }
 
+    private void OnDisable()
+    {
+        // возврат цвета
+        if (hoverImage != null)
+        {
+            hoverImage.color = originalColor;
+            if (binded) binded.color = originalColor;
+            if (text != null) text.SetActive(false);
+        }
+
+        // возврат масштаба
+        foreach (var rt in targetImages)
+        {
+            if (rt == null) continue;
+            StartScale(rt, originalScales[rt]);
+        }
+    }
+
     private void StartScale(RectTransform rt, Vector3 targetScale)
     {
         if (runningCoroutines.ContainsKey(rt) && runningCoroutines[rt] != null)

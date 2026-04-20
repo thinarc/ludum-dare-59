@@ -71,10 +71,13 @@ namespace _Project.Scripts.Game.Upgrades
 
                 view.transform.DOScale(0, 0).SetUpdate(true);
                 view.transform.DOScale(1, 0.5f).SetDelay(i * 0.2f).SetEase(Ease.OutBack).SetUpdate(true);
-
+                
+                foreach (var vd in views)
+                {
+                    vd.GetComponent<HoverZoomTrigger>().enabled = true;
+                }
                 view.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    
                     foreach (var vd in views)
                     {
                         vd.GetComponent<HoverZoomTrigger>().enabled = false;
