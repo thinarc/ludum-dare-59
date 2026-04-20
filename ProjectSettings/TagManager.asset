@@ -7,6 +7,8 @@ TagManager:
   - PointCam
   - GhostTarget1
   - GhostTarget2
+  - HandleSystem
+  - RadioSystem
   layers:
   - Default
   - TransparentFX
