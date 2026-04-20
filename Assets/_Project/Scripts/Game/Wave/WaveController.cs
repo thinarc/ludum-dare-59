@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using _Project.Scripts.Game.Upgrades;
 using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,13 +25,15 @@ namespace _Project.Scripts.Game.Wave
         [SerializeField, Space(5)] private float idleTime = 5;
 
         private List<GameObject> _ghosts = new();
+
+        [SerializeField, Space(5)] private Animator crow;
         
         public void ChangeState() => battle = !battle;
 
         private void Start()
         {
             PlayerController.Instance.PlayerDeath += OnPlayerDeath;
-            ToIdle();
+            ToIdle(true);
         }
 
         private void OnPlayerDeath()
@@ -63,6 +67,8 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = true;
             PlayerController.Instance.ToBattle();
+            LightSetup.Instance.SetupLight(0.3f);
+            crow.SetBool("hide", false);
 
             StartTimer();
             while (_battle)
@@ -76,7 +82,7 @@ namespace _Project.Scripts.Game.Wave
             }
         }
         
-        private void ToIdle()
+        private async void ToIdle(bool first = false)
         {
             _battle = battle;
             CamChanger.Instance.ChangeView();
@@ -85,10 +91,16 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = false;
             PlayerController.Instance.ToIdle();
+            LightSetup.Instance.SetupLight(0.4f);
+            crow.SetBool("hide", true);
             
             _ghosts.ForEach(g => { if (g) Destroy(g); });
             _ghosts.Clear();
             StartTimer();
+            
+            if (first) return;
+            await UniTask.Delay(TimeSpan.FromSeconds(2));
+            UpgradeManager.Instance.UpdateViews();
         }
         
         private Vector3 GetRandomPosition()

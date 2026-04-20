@@ -90,7 +90,6 @@ namespace _Project.Scripts.Game.Ghost
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
         }
         

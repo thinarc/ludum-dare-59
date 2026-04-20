@@ -97,7 +97,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 639123094847518562
+  lastModified: 639123181811721158
   FileSizes:
   - Name: Desktop
     Value: 161280
@@ -117,10 +117,10 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Ghost.bank
   Name: Ghost
   StudioPath: bank:/Ghost
-  lastModified: 639123094832483580
+  lastModified: 639123181810845549
   FileSizes:
   - Name: Desktop
-    Value: 169312
+    Value: 182496
   Exists: 1
 --- !u!114 &-6101813276334487274
 MonoBehaviour:
@@ -192,7 +192,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639123094832504459
+  lastModified: 639123181810860636
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -523,10 +523,10 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639123094832515574
+  lastModified: 639123181810876016
   FileSizes:
   - Name: Desktop
-    Value: 1766
+    Value: 1822
   Exists: 1
 --- !u!114 &-703767122157530336
 MonoBehaviour:
@@ -619,13 +619,14 @@ MonoBehaviour:
   - {fileID: 1299247265043161222}
   - {fileID: 832697753964957675}
   - {fileID: 5229372787237659687}
+  - {fileID: 800657126656756851}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4994252024397530414}
   StringsBanks:
   - {fileID: -936073935831473775}
   cacheVersion: 131858
-  cacheTime: 639123094848359133
+  cacheTime: 639123181812022220
   SerializableEventsDict:
   - key: event:/Ghost/Killed the ghost 3
     index: 0
@@ -657,6 +658,8 @@ MonoBehaviour:
     index: 13
   - key: event:/Radio/Turn_on
     index: 14
+  - key: event:/Ghost/Ghost Attack
+    index: 15
 --- !u!114 &289161733372481437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,6 +687,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 618
+--- !u!114 &800657126656756851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ghost/Ghost Attack
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ghost/Ghost Attack
+  Guid:
+    Data1: -482921203
+    Data2: 1193291799
+    Data3: 1551527358
+    Data4: -1681731953
+  Banks:
+  - {fileID: -6219345181715074176}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &832697753964957675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +881,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 639123094836766285
+  lastModified: 639123181811144634
   FileSizes:
   - Name: Desktop
     Value: 365888
@@ -1040,7 +1070,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639123094845923713
+  lastModified: 639123181811445639
   FileSizes:
   - Name: Desktop
     Value: 1955392
@@ -1114,7 +1144,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Radio.bank
   Name: Radio
   StudioPath: bank:/Radio
-  lastModified: 639123094848359133
+  lastModified: 639123181812022220
   FileSizes:
   - Name: Desktop
     Value: 102176
