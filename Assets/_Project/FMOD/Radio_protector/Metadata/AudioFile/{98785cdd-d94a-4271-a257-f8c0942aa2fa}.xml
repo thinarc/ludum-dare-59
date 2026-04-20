@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{98785cdd-d94a-4271-a257-f8c0942aa2fa}">
+		<property name="assetPath">
+			<value>cell-phone-vibrate.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.149375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd06973-6e87-41fd-a696-1ab63f922a5a}</destination>
+		</relationship>
+	</object>
+</objects>
