@@ -117,7 +117,7 @@
 	</object>
 	<object class="SingleSound" id="{a29bd986-d54a-4f9a-83b9-d3cd803f3836}">
 		<property name="length">
-			<value>25.806458333333332</value>
+			<value>24</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{c0b35b20-a6a2-4fca-8231-96383e771a2f}</destination>
@@ -148,7 +148,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>25.806458333333332</value>
+			<value>24</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{75e0da68-6383-40e2-883e-81d16d353a23}</destination>
@@ -199,7 +199,7 @@
 	<object class="MixerBusFader" id="{d04cf195-eff3-4688-83e6-f379062ded42}" />
 	<object class="AutomationPoint" id="{3ac76fe8-32f3-41ae-a9b4-ed3ca5ae5f26}">
 		<property name="position">
-			<value>25.8046875</value>
+			<value>23.998229166666668</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -210,7 +210,7 @@
 	</object>
 	<object class="AutomationPoint" id="{a5dd74d9-d3cc-485d-888c-5f6330b40c5d}">
 		<property name="position">
-			<value>25.806458333333332</value>
+			<value>24</value>
 		</property>
 		<property name="value">
 			<value>0</value>
