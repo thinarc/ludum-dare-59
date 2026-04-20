@@ -45,6 +45,7 @@ namespace _Project.Scripts.Player
             await shadow.DOColor(Color.white, 0.2f).SetEase(Ease.InFlash).AsyncWaitForCompletion();
             var fade = Random.Range(0.2f, 0.4f);
             _canvas.DOFade(0, fade).SetEase(Ease.OutSine);
+            if (_hp <= 0) PlayerController.Instance.SetSmert(true);
         }
     }
 }

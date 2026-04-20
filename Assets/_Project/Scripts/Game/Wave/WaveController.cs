@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -24,8 +25,17 @@ namespace _Project.Scripts.Game.Wave
         private List<GameObject> _ghosts = new();
         
         public void ChangeState() => battle = !battle;
-        
-        private void Start() => ToIdle();
+
+        private void Start()
+        {
+            PlayerController.Instance.PlayerDeath += OnPlayerDeath;
+            ToIdle();
+        }
+
+        private void OnPlayerDeath()
+        {
+            print("игрокумер");
+        }
         
         private void Update()
         {
@@ -52,6 +62,7 @@ namespace _Project.Scripts.Game.Wave
             emit.enabled = true;
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = true;
+            PlayerController.Instance.ToBattle();
 
             StartTimer();
             while (_battle)
@@ -73,6 +84,8 @@ namespace _Project.Scripts.Game.Wave
             emit.enabled = false;
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = false;
+            PlayerController.Instance.ToIdle();
+            
             _ghosts.ForEach(g => { if (g) Destroy(g); });
             _ghosts.Clear();
             StartTimer();

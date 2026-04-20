@@ -1,35 +1,28 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        // [SerializeField] private float speed = 2f;
-        //
-        // private Rigidbody2D _rb;
-        //
-        // private float _horizontal;
-        // private bool _facingRight;
-        //
-        // private void Start()
-        // {
-        //     _rb = GetComponent<Rigidbody2D>();
-        // }
-        //
-        // private void Update()
-        // {
-        //     _horizontal = Input.GetAxis("Horizontal");
-        //     if (!_facingRight && _horizontal > 0 || _facingRight && _horizontal < 0) Flip();
-        // }
-        //
-        // private void Flip()
-        // {
-        //     _facingRight = !_facingRight;
-        //     var scale = transform.localScale;
-        //     scale.x *= -1;
-        //     transform.localScale = scale;
-        // }
-        //
-        // private void FixedUpdate() => _rb.linearVelocity = new Vector2(_horizontal * speed, _rb.linearVelocity.y);
+        public static PlayerController Instance { get; private set; }
+        private void Awake() => Instance = this;
+        
+        [SerializeField] private Animator anim;
+        public event Action PlayerDeath;
+
+        public async void ToBattle()
+        {
+            await UniTask.Delay(200);
+            anim.SetBool("battle", true);
+        }
+        public void ToIdle() => anim.SetBool("battle", false);
+
+        public void SetSmert(bool s)
+        {
+            anim.SetBool("smert", s);
+            PlayerDeath?.Invoke();
+        }
     }
 }
