@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Project.Scripts.Managers;
 using _Project.Scripts.Upgrades;
 using DG.Tweening;
 using TMPro;
@@ -19,11 +20,11 @@ namespace _Project.Scripts.Game.Upgrades
         {
             Instance = this;
             
-            foreach (var view in views) view.transform.DOScale(0, 0);
+            foreach (var view in views) view.transform.DOScale(0, 0).SetLink(gameObject, LinkBehaviour.KillOnDestroy);
             
             GetComponent<CanvasGroup>().alpha = 1f;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
-            GetComponent<Image>().DOFade(0, 0f);
+            GetComponent<Image>().DOFade(0, 0f).SetLink(gameObject, LinkBehaviour.KillOnDestroy);
         }
 
         public void UpdateViews()
@@ -34,7 +35,7 @@ namespace _Project.Scripts.Game.Upgrades
             
             try
             {
-                GetComponent<Image>().DOFade(0.5f, 0.8f).SetEase(Ease.OutExpo).SetUpdate(true);
+                GetComponent<Image>().DOFade(0.5f, 0.8f).SetEase(Ease.OutExpo).SetLink(gameObject, LinkBehaviour.KillOnDestroy).SetUpdate(true);
             }
             catch
             {
@@ -69,8 +70,8 @@ namespace _Project.Scripts.Game.Upgrades
                 n.text = label;
                 d.text = desc;
 
-                view.transform.DOScale(0, 0).SetUpdate(true);
-                view.transform.DOScale(1, 0.5f).SetDelay(i * 0.2f).SetEase(Ease.OutBack).SetUpdate(true);
+                view.transform.DOScale(0, 0).SetLink(gameObject, LinkBehaviour.KillOnDestroy).SetUpdate(true);
+                view.transform.DOScale(1, 0.5f).SetDelay(i * 0.2f).SetEase(Ease.OutBack).SetLink(gameObject, LinkBehaviour.KillOnDestroy).SetUpdate(true);
                 
                 foreach (var vd in views)
                 {
@@ -78,6 +79,7 @@ namespace _Project.Scripts.Game.Upgrades
                 }
                 view.GetComponent<Button>().onClick.AddListener(() =>
                 {
+                    SoundManager.Instance.SoundActions.ClickCard();
                     foreach (var vd in views)
                     {
                         vd.GetComponent<HoverZoomTrigger>().enabled = false;
@@ -92,7 +94,7 @@ namespace _Project.Scripts.Game.Upgrades
                             other.DOScale(0, 0.4f * Random.Range(0.8f, 1.5f)).SetEase(Ease.InBack).SetUpdate(true);
                     }
                     
-                    GetComponent<Image>().DOFade(0, 0.65f).SetEase(Ease.InExpo).SetUpdate(true);
+                    GetComponent<Image>().DOFade(0, 0.65f).SetEase(Ease.InExpo).SetLink(gameObject, LinkBehaviour.KillOnDestroy).SetUpdate(true);
                     Time.timeScale = 1f;
                     GetComponent<CanvasGroup>().blocksRaycasts = false;
                     

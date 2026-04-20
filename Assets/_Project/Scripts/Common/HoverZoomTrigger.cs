@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -98,13 +99,6 @@ public class HoverZoomTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExi
             hoverImage.color = originalColor;
             if (binded) binded.color = originalColor;
             if (text != null) text.SetActive(false);
-        }
-
-        // возврат масштаба
-        foreach (var rt in targetImages)
-        {
-            if (rt == null) continue;
-            StartScale(rt, originalScales[rt]);
         }
     }
 

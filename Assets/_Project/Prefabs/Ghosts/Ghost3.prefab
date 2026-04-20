@@ -137,8 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9cd8c5966446b48128e1924002a71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Game.Ghost.GhostController
-  maxHp: 10
-  speed: 2
+  maxHp: 20
+  speed: 3
+  typ: 2
 --- !u!58 &5905762501656900265
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,5 +174,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.75, y: -0.25}
-  m_Radius: 2
+  m_Offset: {x: -0.5, y: -0.5}
+  m_Radius: 2.5

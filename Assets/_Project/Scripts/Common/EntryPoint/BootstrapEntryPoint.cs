@@ -1,3 +1,4 @@
+using _Project.Scripts.Game.Wave;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -18,6 +19,7 @@ namespace _Project.Scripts.Common.EntryPoint
             
             Instance = this;
             DontDestroyOnLoad(this);
+            WaveController.Repeats = 0;
             
             SceneManager.LoadScene(1);
         }

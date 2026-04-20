@@ -1,4 +1,5 @@
 using _Project.Scripts.Game.Ghost;
+using _Project.Scripts.Managers;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Radio
@@ -25,6 +26,7 @@ namespace _Project.Scripts.Game.Radio
             var input = 0f;
             if (Input.GetKey(KeyCode.D)) input = -1f;
             if (Input.GetKey(KeyCode.A)) input = 1f;
+            if (input != 0f) SoundManager.Instance.SoundActions.SearchRadio(Time.deltaTime / 10f);
 
             _currentRot += input * speedRot * Time.deltaTime;
             _currentRot = Mathf.Clamp(_currentRot, -120f, 120f);

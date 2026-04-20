@@ -24,5 +24,6 @@ namespace _Project.Scripts.Player
             anim.SetBool("smert", s);
             PlayerDeath?.Invoke();
         }
+        public void Pass() => anim.SetTrigger("pass");
     }
 }

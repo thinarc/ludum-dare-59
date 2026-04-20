@@ -18,5 +18,6 @@ namespace _Project.Scripts.Upgrades
         Damage,
         Cooldown,
         Radius,
+        HealHp
     }
 }

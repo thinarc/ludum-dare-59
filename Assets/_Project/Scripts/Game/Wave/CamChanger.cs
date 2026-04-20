@@ -19,8 +19,12 @@ namespace _Project.Scripts.Game.Wave
         private Transform _target;
         private CinemachineCamera _vCam;
         private CinemachineConfiner2D _confiner;
-        
-        public void ChangeView() => targetView = !targetView;
+
+        public void ChangeView(bool smert = false)
+        {
+            if (smert) speedLens *= 1.2f;
+            targetView = !targetView;
+        }
         
         private void Start()
         {

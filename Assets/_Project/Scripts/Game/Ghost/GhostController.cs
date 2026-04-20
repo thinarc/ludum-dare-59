@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Managers;
 using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -21,6 +22,8 @@ namespace _Project.Scripts.Game.Ghost
         private Transform _target;
         private bool _absorb;
         private bool _damaged;
+
+        public int typ = 1;
         
         private void Start()
         {
@@ -31,7 +34,7 @@ namespace _Project.Scripts.Game.Ghost
             _target = _target1;
             
             _hp = maxHp;
-            _sprite.DOFade(0, 0);
+            if (_sprite) _sprite.DOFade(0, 0).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy);
             
             ShowSelf();
         }
@@ -48,14 +51,18 @@ namespace _Project.Scripts.Game.Ghost
             {
                 PlayerStats.Instance.TakeDamage();
                 _damaged = true;
+                SoundManager.Instance.SoundActions.GhostAttack();
             }
         }
 
         private async void ShowSelf()
         {
-            await _sprite.DOFade(1f, 1f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
-            await _sprite.DOFade(Random.Range(0.6f, 0.8f), 0.4f).SetEase(Ease.InBounce).SetLoops(2, LoopType.Restart).AsyncWaitForCompletion();
-            await _sprite.DOFade(Random.Range(0.8f, 1f), 0.2f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).AsyncWaitForCompletion();
+            if (!_sprite || !this) return;
+            await _sprite.DOFade(1f, 1f).SetEase(Ease.InOutSine).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
+            if (!_sprite || !this) return;
+            await _sprite.DOFade(Random.Range(0.6f, 0.8f), 0.4f).SetEase(Ease.InBounce).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).SetLoops(2, LoopType.Restart).AsyncWaitForCompletion();
+            if (!_sprite || !this) return;
+            await _sprite.DOFade(Random.Range(0.8f, 1f), 0.2f).SetEase(Ease.InOutSine).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).SetLoops(-1, LoopType.Yoyo).AsyncWaitForCompletion();
         }
 
         private async void AbsorbSelf()
@@ -64,49 +71,40 @@ namespace _Project.Scripts.Game.Ghost
             _target = _target2;
             speed *= Random.Range(1.2f, 2f);
 
-            _sprite.DOColor(Color.gray2, 2f).SetEase(Ease.InOutSine);
-            await _sprite.DOFade(0, 2f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
-            try
-            {
-                Destroy(gameObject);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            if (_sprite) _sprite.DOColor(Color.gray1, 2f).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).SetEase(Ease.InOutSine);
+            if (_sprite) await _sprite.DOFade(0, 2f).SetEase(Ease.InOutSine).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
+            if (this) Destroy(gameObject);
         }
 
         private async void HideSelf()
         {
             _target = null;
             
-            _sprite.DOColor(Color.white, 1f).SetEase(Ease.InOutSine);
-            await _sprite.DOFade(0, 1f).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
-            try
-            {
-                Destroy(gameObject);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            _sprite.DOColor(Color.white, 1f).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).SetEase(Ease.InOutSine);
+            await _sprite.DOFade(0, 1f).SetEase(Ease.InOutSine).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
+            if (!_damaged) SoundManager.Instance.SoundActions.KillGhost(typ);
+            if (this) Destroy(gameObject);
         }
         
         public async void TakeDamage(int damage, float delay)
         {
             GetComponent<Collider2D>().enabled = false;
-            while (_hp > 0)
+            while (_hp > 0 && !_absorb)
             {
                 _hp -= damage;
-                var wait = _sprite.DOColor(Color.darkRed, Random.Range(0.02f, 0.08f)).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
+                if (!_sprite || !this && _hp > 0) continue;
+                var wait = _sprite.DOColor(Color.indianRed, Random.Range(0.02f, 0.08f)).SetEase(Ease.InOutSine).SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
                 if (_hp <= 0)
                 {
                     HideSelf();
                     break;
                 }
                 await wait;
-                _sprite.DOColor(Color.white, 0.2f).SetEase(Ease.InOutSine);
+                if (_sprite && !_absorb)
+                {
+                    await _sprite.DOColor(Color.white, 0.2f).SetEase(Ease.InOutSine)
+                        .SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
+                }
                 await UniTask.Delay(TimeSpan.FromSeconds(delay));
             }
         }

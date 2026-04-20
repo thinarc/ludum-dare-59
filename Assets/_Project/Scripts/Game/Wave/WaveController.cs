@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Game.Upgrades;
+using _Project.Scripts.Managers;
 using _Project.Scripts.Player;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -31,20 +32,51 @@ namespace _Project.Scripts.Game.Wave
         
         public void ChangeState() => battle = !battle;
         private bool _disable;
+        private static bool _restart;
+
+        public static int Repeats;
+        public GameObject cherep;
+        public Vector2 cherepPos;
 
         private void Start()
         {
             PlayerController.Instance.PlayerDeath += OnPlayerDeath;
             ToIdle(true);
             _disable = false;
+
+            var repeats = Repeats;
+            while (repeats > 0)
+            {
+                repeats--;
+                var pos = cherepPos;
+                pos.x += Random.Range(-2f, 2f);
+                pos.y += Random.Range(-0.5f, 0.5f);
+                Instantiate(cherep, pos, Quaternion.identity);
+            }
         }
 
         private async void OnPlayerDeath()
         {
             print("игрокумер");
             _disable = true;
+            _restart = true;
+            GameObject.FindWithTag("HandleSystem").SetActive(false);
+            GameObject.FindWithTag("RadioSystem").SetActive(false);
+            CamChanger.Instance.ChangeView(true);
             await LightSetup.Instance.SetupLight(0f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Repeats++;
+        }
+
+        private int _waves;
+        private async void Pass()
+        {
+            PlayerController.Instance.Pass();
+            _disable = true;
+            GameObject.FindWithTag("HandleSystem").SetActive(false);
+            GameObject.FindWithTag("RadioSystem").SetActive(false);
+            SoundManager.Instance.SoundActions.Final();
+            await LightSetup.Instance.SetupLight(0f);
         }
         
         private void Update()
@@ -52,7 +84,6 @@ namespace _Project.Scripts.Game.Wave
             if (_disable) return;
             if (battle && !_battle) ToBattle();
             else if (!battle && _battle) ToIdle();
-
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F)) ChangeState();
 #endif
@@ -76,16 +107,19 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = true;
             PlayerController.Instance.ToBattle();
+            SoundManager.Instance.SoundActions.RadioOn();
             LightSetup.Instance.SetupLight(0.3f).Forget();
             crow.SetBool("hide", false);
 
             StartTimer();
             while (_battle)
             {
+                _restart = false;
                 var ghostPrefab = ghosts[Random.Range(0, ghosts.Length)];
                 var pos = GetRandomPosition();
                 
                 await UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
+                if (!_battle || _restart) break;
                 var ghost = Instantiate(ghostPrefab, pos, Quaternion.identity);
                 _ghosts.Add(ghost);
             }
@@ -93,6 +127,13 @@ namespace _Project.Scripts.Game.Wave
         
         private async void ToIdle(bool first = false)
         {
+            _waves++;
+            if (_waves >= 5)
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(2));
+                Pass();
+            }
+            
             _battle = battle;
             CamChanger.Instance.ChangeView();
             var emit = GameObject.FindWithTag("HandleSystem").GetComponent<ParticleSystem>().emission;
@@ -100,8 +141,10 @@ namespace _Project.Scripts.Game.Wave
             var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
             emit2.enabled = false;
             PlayerController.Instance.ToIdle();
+            SoundManager.Instance.SoundActions.RadioOff();
             LightSetup.Instance.SetupLight(0.4f).Forget();
             crow.SetBool("hide", true);
+            PlayerStats.Instance.TakeHeal();
             
             _ghosts.ForEach(g => { if (g) Destroy(g); });
             _ghosts.Clear();
@@ -109,7 +152,7 @@ namespace _Project.Scripts.Game.Wave
             
             if (first) return;
             await UniTask.Delay(TimeSpan.FromSeconds(2));
-            UpgradeManager.Instance.UpdateViews();
+            if (!_disable) UpgradeManager.Instance.UpdateViews();
         }
         
         private Vector3 GetRandomPosition()
