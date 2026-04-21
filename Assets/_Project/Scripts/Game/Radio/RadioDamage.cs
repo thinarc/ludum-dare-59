@@ -1,10 +1,12 @@
+using System;
 using _Project.Scripts.Game.Ghost;
 using _Project.Scripts.Managers;
+using _Project.Scripts.Upgrades;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Radio
 {
-    public class RadioDamage : MonoBehaviour
+    public class RadioDamage : MonoBehaviour, IUpgradeTarget
     {
         [SerializeField] private int damage = 5;
         [SerializeField] private float delay = 0.2f;
@@ -19,6 +21,12 @@ namespace _Project.Scripts.Game.Radio
         private void Start()
         {
             _waveSystem = GetComponent<ParticleSystem>();
+        }
+
+        public void ApplyUpgrade(UpgradeData upgrade)
+        {
+            if (upgrade.type == UpgradeType.Damage) damage += Convert.ToInt32(upgrade.value);
+            if (upgrade.type == UpgradeType.Cooldown) delay -= upgrade.value;
         }
 
         private void Update()

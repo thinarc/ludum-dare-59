@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Game.Upgrades;
 using _Project.Scripts.Managers;
 using _Project.Scripts.Player;
+using _Project.Scripts.Upgrades;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -11,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Game.Wave
 {
-    public class WaveController : MonoBehaviour
+    public class WaveController : MonoBehaviour, IUpgradeTarget
     {
         [SerializeField] private GameObject[] ghosts;
 
@@ -55,6 +56,17 @@ namespace _Project.Scripts.Game.Wave
             }
         }
 
+        public void ApplyUpgrade(UpgradeData upgrade)
+        {
+            if (upgrade.type == UpgradeType.Radius)
+            {
+                // _healHp += Convert.ToInt32(upgrade.value);
+                var rate = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission.rateOverTime;
+                rate.constant += upgrade.value;
+                print(GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission.rateOverTime.constant);
+            }
+        }
+
         private async void OnPlayerDeath()
         {
             print("игрокумер");
@@ -73,8 +85,9 @@ namespace _Project.Scripts.Game.Wave
         {
             PlayerController.Instance.Pass();
             _disable = true;
-            GameObject.FindWithTag("HandleSystem").SetActive(false);
-            GameObject.FindWithTag("RadioSystem").SetActive(false);
+            _pass = true;
+            GameObject.FindWithTag("HandleSystem")?.SetActive(false);
+            GameObject.FindWithTag("RadioSystem")?.SetActive(false);
             SoundManager.Instance.SoundActions.Final();
             await LightSetup.Instance.SetupLight(0f);
         }
@@ -84,6 +97,7 @@ namespace _Project.Scripts.Game.Wave
             if (_disable) return;
             if (battle && !_battle) ToBattle();
             else if (!battle && _battle) ToIdle();
+            spawnDelay -= Time.deltaTime / 60f;
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F)) ChangeState();
 #endif
@@ -100,6 +114,7 @@ namespace _Project.Scripts.Game.Wave
 
         private async void ToBattle()
         {
+            if (_disable) return;
             _battle = battle;
             CamChanger.Instance.ChangeView();
             var emit = GameObject.FindWithTag("HandleSystem").GetComponent<ParticleSystem>().emission;
@@ -124,9 +139,12 @@ namespace _Project.Scripts.Game.Wave
                 _ghosts.Add(ghost);
             }
         }
+
+        private bool _pass;
         
         private async void ToIdle(bool first = false)
         {
+            if (_disable) return;
             _waves++;
             if (_waves >= 5)
             {
@@ -136,10 +154,13 @@ namespace _Project.Scripts.Game.Wave
             
             _battle = battle;
             CamChanger.Instance.ChangeView();
-            var emit = GameObject.FindWithTag("HandleSystem").GetComponent<ParticleSystem>().emission;
-            emit.enabled = false;
-            var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
-            emit2.enabled = false;
+            if (!_disable && !_pass)
+            {
+                var emit = GameObject.FindWithTag("HandleSystem").GetComponent<ParticleSystem>().emission;
+                emit.enabled = false;
+                var emit2 = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission;
+                emit2.enabled = false;
+            }
             PlayerController.Instance.ToIdle();
             SoundManager.Instance.SoundActions.RadioOff();
             LightSetup.Instance.SetupLight(0.4f).Forget();

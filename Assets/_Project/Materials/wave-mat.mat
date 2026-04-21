@@ -373,8 +373,8 @@ Material:
     - _SineGlowFade: 1
     - _SineGlowFrequency: 4
     - _SineGlowMaskToggle: 0
-    - _SineGlowMax: 1
-    - _SineGlowMin: 0
+    - _SineGlowMax: 2
+    - _SineGlowMin: 1
     - _SineMoveFade: 1
     - _SineRotateAngle: 15
     - _SineRotateFade: 1
@@ -575,7 +575,7 @@ Material:
     - _ShiftingColorA: {r: 1.498039, g: 0, b: 0, a: 0}
     - _ShiftingColorB: {r: 1.498039, g: 0.7490196, b: 0, a: 0}
     - _ShineColor: {r: 11.98431, g: 11.98431, b: 11.98431, a: 0}
-    - _SineGlowColor: {r: 0, g: 2.007843, b: 2.996078, a: 0}
+    - _SineGlowColor: {r: 0.93821454, g: 1.2600175, b: 1.4106487, a: 0}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}

@@ -239,8 +239,8 @@ MonoBehaviour:
   - {fileID: 7674067602537318195, guid: e3282318287fcae449976f7657202e7b, type: 3}
   - {fileID: 7834857856762032431, guid: 5081e026b99e32444b82602de58b9dfe, type: 3}
   - {fileID: 2684111283138045918, guid: ca6a86e8cd157da4a8ecb6a9f197a59d, type: 3}
-  spawnDelay: 2
-  size: {x: 20, y: 10}
+  spawnDelay: 5
+  size: {x: 15, y: 10}
   heigth: 15
   battle: 0
   battleTime: 20
@@ -10690,7 +10690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14927c9b1fe94a468d6754b42337d864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Game.Radio.RadioDamage
-  damage: 5
+  damage: 10
   delay: 0.2
   speedRot: 60
   handle: {fileID: 1700523445}
@@ -10737,6 +10737,7 @@ GameObject:
   - component: {fileID: 471554734}
   - component: {fileID: 471554733}
   - component: {fileID: 471554736}
+  - component: {fileID: 471554737}
   m_Layer: 0
   m_Name: VCam
   m_TagString: Untagged
@@ -10853,6 +10854,23 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &471554737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471554732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
 --- !u!1 &476477221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10993,7 +11011,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

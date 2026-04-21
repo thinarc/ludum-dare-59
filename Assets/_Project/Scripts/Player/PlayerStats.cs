@@ -1,14 +1,17 @@
+using System;
 using _Project.Scripts.Managers;
+using _Project.Scripts.Upgrades;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Player
 {
-    public class PlayerStats : MonoBehaviour
+    public class PlayerStats : MonoBehaviour, IUpgradeTarget
     {
         public static PlayerStats Instance { get; private set; }
 
@@ -32,10 +35,16 @@ namespace _Project.Scripts.Player
             _hp = MaxHp;
         }
 
+        public void ApplyUpgrade(UpgradeData upgrade)
+        {
+            if (upgrade.type == UpgradeType.HealHp) _healHp += Convert.ToInt32(upgrade.value);
+        }
+
+        private int _healHp = 2;
         public void TakeHeal()
         {
             if (_hp <= 0) return;
-            _hp += 2;
+            _hp += _healHp;
             _hp = Mathf.Clamp(_hp, 0, MaxHp);
             for (var i = _hp; i > 0; i--)
             {
