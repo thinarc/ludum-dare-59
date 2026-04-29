@@ -26,7 +26,12 @@ namespace _Project.Scripts.Game.Radio
         public void ApplyUpgrade(UpgradeData upgrade)
         {
             if (upgrade.type == UpgradeType.Damage) damage += Convert.ToInt32(upgrade.value);
-            if (upgrade.type == UpgradeType.Cooldown) delay -= upgrade.value;
+            if (upgrade.type == UpgradeType.Cooldown)
+            {
+                delay -= upgrade.value;
+                var rate = _waveSystem.emission.rateOverTime;
+                rate.constant += upgrade.value * 3f;
+            }
         }
 
         private void Update()
@@ -37,12 +42,14 @@ namespace _Project.Scripts.Game.Radio
             if (input != 0f) SoundManager.Instance.SoundActions.SearchRadio(Time.deltaTime / 10f);
 
             _currentRot += input * speedRot * Time.deltaTime;
-            _currentRot = Mathf.Clamp(_currentRot, -120f, 120f);
+            _currentRot = Mathf.Clamp(_currentRot, -240f, 240f);
             
-            var shape = _waveSystem.shape;
-            shape.rotation = new Vector3(0f, 0f, _currentRot);
-
-            var handleRot = _currentRot / 2f;
+            // var shape = _waveSystem.shape;
+            // shape.rotation = new Vector3(0f, 0f, _currentRot);
+            var shape = _waveSystem.transform;
+            shape.rotation = Quaternion.Euler(0f, 0f, _currentRot);
+            
+            var handleRot = _currentRot / 4f;
             handle.transform.rotation = Quaternion.Euler(0f, 0f, handleRot);
         }
         

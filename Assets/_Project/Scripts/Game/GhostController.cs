@@ -105,6 +105,8 @@ namespace _Project.Scripts.Game.Ghost
                     await _sprite.DOColor(Color.white, 0.2f).SetEase(Ease.InOutSine)
                         .SetLink(_sprite.gameObject, LinkBehaviour.KillOnDestroy).AsyncWaitForCompletion();
                 }
+
+                if (delay < 0) delay = 0;
                 await UniTask.Delay(TimeSpan.FromSeconds(delay));
             }
         }

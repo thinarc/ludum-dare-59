@@ -60,10 +60,8 @@ namespace _Project.Scripts.Game.Wave
         {
             if (upgrade.type == UpgradeType.Radius)
             {
-                // _healHp += Convert.ToInt32(upgrade.value);
-                var rate = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission.rateOverTime;
-                rate.constant += upgrade.value;
-                print(GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().emission.rateOverTime.constant);
+                var startSize = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().main.startSize;
+                startSize.constant += upgrade.value;
             }
         }
 
@@ -97,7 +95,8 @@ namespace _Project.Scripts.Game.Wave
             if (_disable) return;
             if (battle && !_battle) ToBattle();
             else if (!battle && _battle) ToIdle();
-            spawnDelay -= Time.deltaTime / 60f;
+            spawnDelay -= Time.deltaTime / 15f;
+            if (spawnDelay < 0) spawnDelay = 0.1f;
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F)) ChangeState();
 #endif
@@ -149,6 +148,7 @@ namespace _Project.Scripts.Game.Wave
             if (_waves >= 5)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(2));
+                StoryController.Instance.OnPass();
                 Pass();
             }
             

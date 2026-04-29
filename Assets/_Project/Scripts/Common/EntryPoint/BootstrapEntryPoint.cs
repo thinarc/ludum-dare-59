@@ -1,3 +1,4 @@
+using _Project.Scripts.Game;
 using _Project.Scripts.Game.Wave;
 using Cysharp.Threading.Tasks;
 using TMPro;
@@ -21,19 +22,21 @@ namespace _Project.Scripts.Common.EntryPoint
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
 
             Application.targetFrameRate = 100;
+
+            StoryController.Restart = false;
             
             Instance = this;
             DontDestroyOnLoad(this);
             WaveController.Repeats = 0;
             FMODUnity.RuntimeManager.StudioSystem.getBankList(out var banks);
-            print(banks);
+            print(banks.Length);
 
             fontSize = text.fontSize;
-            _timer = 2f;
+            _timer = 0f;
             while (true)
             {
-                if (Input.GetKey(KeyCode.Mouse0)) _timer -= Time.deltaTime;
-                if (Input.GetKeyUp(KeyCode.Mouse0)) _timer = 2f;
+                if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space)) _timer -= Time.deltaTime;
+                if (Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Space)) _timer = 2f;
                 if (_timer <= 0f)
                 {
                     SceneManager.LoadScene(1);

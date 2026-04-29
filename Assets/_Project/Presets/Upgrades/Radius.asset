@@ -17,4 +17,4 @@ MonoBehaviour:
   descEn: Increase Radius.
   labelRu: "\u0420\u0430\u0434\u0438\u0443\u0441"
   descRu: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0440\u0430\u0434\u0438\u0443\u0441."
-  value: 1
+  value: 0.6
