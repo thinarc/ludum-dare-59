@@ -46,16 +46,13 @@ namespace _Project.Scripts.Game
         private float fSize;
         private bool _type;
 
-        private void OnPlayerDeath()
-        {
-            _storyDelayTimer = 0f;
-            Restart = true;
-        }
+        private void OnPlayerDeath() => Restart = true;
 
         public void OnPass()
         {
-            _storyDelayTimer = 0f;
+            _storyDelayTimer = 100f;
             victoryCheck = true;
+            ShowStory();
         }
 
         private void Update()
@@ -66,7 +63,7 @@ namespace _Project.Scripts.Game
 
         private async void ShowStory()
         {
-            if (_storiesQueue.Count == 0) return;
+            if (_storiesQueue.Count == 0 && !victoryCheck) return;
             
             bool ruMod;
             if (!victoryCheck)
@@ -76,14 +73,13 @@ namespace _Project.Scripts.Game
             }
             else
             {
-                _storyDelayTimer = storyDelay;
                 await UniTask.Delay(2000);
                 UpdateText(victory.GetText(out var ru));
                 ruMod = ru;
             }
             if (ruMod) storyText.fontSize = fSize / 1.8f;
             else storyText.fontSize = fSize;
-            _storyDelayTimer = storyDelay;
+            if (!victoryCheck) _storyDelayTimer = storyDelay;
             _type = true;
             // if (_storiesQueue.Count > 12) _storyDelayTimer /= 1.5f;
             // else if (_storiesQueue.Count == 11) _storyDelayTimer /= 2.2f;

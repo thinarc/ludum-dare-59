@@ -28,8 +28,6 @@ namespace _Project.Scripts.Common.EntryPoint
             Instance = this;
             DontDestroyOnLoad(this);
             WaveController.Repeats = 0;
-            FMODUnity.RuntimeManager.StudioSystem.getBankList(out var banks);
-            print(banks.Length);
 
             fontSize = text.fontSize;
             _timer = 2f;
