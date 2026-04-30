@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Upgrades
+namespace _Project.Scripts.Game.Upgrades
 {
     [CreateAssetMenu(menuName = "Upgrades/Upgrade")]
     public class UpgradeData : ScriptableObject

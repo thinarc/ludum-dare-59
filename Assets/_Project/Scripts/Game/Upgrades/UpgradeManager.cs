@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Project.Scripts.Managers;
 using _Project.Scripts.Upgrades;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace _Project.Scripts.Game.Upgrades
             GetComponent<Image>().DOFade(0, 0f).SetLink(gameObject, LinkBehaviour.KillOnDestroy);
         }
 
-        public void UpdateViews()
+        public async UniTask UpdateViews()
         {
             Time.timeScale = 0f;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -46,6 +47,8 @@ namespace _Project.Scripts.Game.Upgrades
             var queue = new Queue<UpgradeData>();
             foreach (var u in updates) queue.Enqueue(u);
 
+            var click = false;
+            
             for (var i = 0; i < views.Length; i++)
             {
                 var update = queue.Dequeue();
@@ -77,6 +80,7 @@ namespace _Project.Scripts.Game.Upgrades
                 {
                     vd.GetComponent<HoverZoomTrigger>().enabled = true;
                 }
+                
                 view.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     SoundManager.Instance.SoundActions.ClickCard();
@@ -99,8 +103,11 @@ namespace _Project.Scripts.Game.Upgrades
                     GetComponent<CanvasGroup>().blocksRaycasts = false;
                     
                     ApplyUpgrade(update);
+                    click = true;
                 });
             }
+            
+            await UniTask.WaitUntil(() => click);
         }
 
         private List<UpgradeData> GetRandomUpgrades(int count)

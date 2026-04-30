@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Game.Upgrades;
 using _Project.Scripts.Managers;
 using _Project.Scripts.Upgrades;
 using Cysharp.Threading.Tasks;

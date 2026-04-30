@@ -53,6 +53,9 @@ namespace _Project.Scripts.Game.Sound
         {
             while (true)
             {
+                while (!RuntimeManager.HaveAllBanksLoaded)
+                    await UniTask.Yield();
+                
                 var inst = RuntimeManager.CreateInstance(tracks[currentIndex]);
 
                 inst.getDescription(out var desc);

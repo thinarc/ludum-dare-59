@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Game.Wave
 {
-    public class WaveController : MonoBehaviour, IUpgradeTarget
+    public class WaveController : MonoBehaviour
     {
         [SerializeField] private GameObject[] ghosts;
 
@@ -56,15 +56,6 @@ namespace _Project.Scripts.Game.Wave
             }
         }
 
-        public void ApplyUpgrade(UpgradeData upgrade)
-        {
-            if (upgrade.type == UpgradeType.Radius)
-            {
-                var startSize = GameObject.FindWithTag("RadioSystem").GetComponent<ParticleSystem>().main.startSize;
-                startSize.constant += upgrade.value;
-            }
-        }
-
         private async void OnPlayerDeath()
         {
             print("игрокумер");
@@ -95,7 +86,7 @@ namespace _Project.Scripts.Game.Wave
             if (_disable) return;
             if (battle && !_battle) ToBattle();
             else if (!battle && _battle) ToIdle();
-            spawnDelay -= Time.deltaTime / 15f;
+            spawnDelay -= Time.deltaTime / 20f;
             if (spawnDelay < 0) spawnDelay = 0.1f;
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.F)) ChangeState();
@@ -173,7 +164,12 @@ namespace _Project.Scripts.Game.Wave
             
             if (first) return;
             await UniTask.Delay(TimeSpan.FromSeconds(2));
-            if (!_disable) UpgradeManager.Instance.UpdateViews();
+            if (!_disable)
+            {
+                await UpgradeManager.Instance.UpdateViews();
+                await UniTask.Delay(400);
+                await UpgradeManager.Instance.UpdateViews();
+            }
         }
         
         private Vector3 GetRandomPosition()

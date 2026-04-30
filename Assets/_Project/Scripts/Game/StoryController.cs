@@ -64,11 +64,11 @@ namespace _Project.Scripts.Game
             if (!_type) _storyDelayTimer -= Time.deltaTime;
         }
 
-        private void ShowStory()
+        private async void ShowStory()
         {
             if (_storiesQueue.Count == 0) return;
             
-            bool ruMod = false;
+            bool ruMod;
             if (!victoryCheck)
             {
                 UpdateText(_storiesQueue.Dequeue().GetText(out var ru));
@@ -76,6 +76,8 @@ namespace _Project.Scripts.Game
             }
             else
             {
+                _storyDelayTimer = storyDelay;
+                await UniTask.Delay(2000);
                 UpdateText(victory.GetText(out var ru));
                 ruMod = ru;
             }

@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Game.Ghost;
+using _Project.Scripts.Game.Upgrades;
 using _Project.Scripts.Managers;
 using _Project.Scripts.Upgrades;
 using UnityEngine;
@@ -29,8 +30,13 @@ namespace _Project.Scripts.Game.Radio
             if (upgrade.type == UpgradeType.Cooldown)
             {
                 delay -= upgrade.value;
-                var rate = _waveSystem.emission.rateOverTime;
-                rate.constant += upgrade.value * 3f;
+                var rate = _waveSystem.emission;
+                rate.rateOverTime = rate.rateOverTime.constant + upgrade.value * 4f;
+            }
+            if (upgrade.type == UpgradeType.Radius)
+            {
+                var main = _waveSystem.main;
+                main.startSize = main.startSize.constant + upgrade.value;
             }
         }
 
@@ -42,14 +48,12 @@ namespace _Project.Scripts.Game.Radio
             if (input != 0f) SoundManager.Instance.SoundActions.SearchRadio(Time.deltaTime / 10f);
 
             _currentRot += input * speedRot * Time.deltaTime;
-            _currentRot = Mathf.Clamp(_currentRot, -240f, 240f);
+            _currentRot = Mathf.Clamp(_currentRot, -60f, 60f);
             
-            // var shape = _waveSystem.shape;
-            // shape.rotation = new Vector3(0f, 0f, _currentRot);
-            var shape = _waveSystem.transform;
-            shape.rotation = Quaternion.Euler(0f, 0f, _currentRot);
-            
-            var handleRot = _currentRot / 4f;
+            var shape = _waveSystem.shape;
+            shape.rotation = new Vector3(0f, 0f, _currentRot);
+
+            var handleRot = _currentRot;
             handle.transform.rotation = Quaternion.Euler(0f, 0f, handleRot);
         }
         

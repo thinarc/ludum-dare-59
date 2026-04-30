@@ -32,7 +32,7 @@ namespace _Project.Scripts.Common.EntryPoint
             print(banks.Length);
 
             fontSize = text.fontSize;
-            _timer = 0f;
+            _timer = 2f;
             while (true)
             {
                 if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space)) _timer -= Time.deltaTime;
