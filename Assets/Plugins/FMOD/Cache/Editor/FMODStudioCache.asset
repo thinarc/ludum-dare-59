@@ -835,7 +835,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639131895331173175
+  lastModified: 639132052774031276
   FileSizes:
   - Name: Desktop
     Value: 1955392
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 4844433894776805175}
   cacheVersion: 131858
-  cacheTime: 639131895331777255
+  cacheTime: 639132052774046677
   SerializableEventsDict:
   - key: event:/Ghost/Ghost Attack
     index: 0
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639131895330495356
+  lastModified: 639132052773960529
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 639131895330780142
+  lastModified: 639132052773982701
   FileSizes:
   - Name: Desktop
     Value: 365888
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639131895330500494
+  lastModified: 639132052773960529
   FileSizes:
   - Name: Desktop
     Value: 1822
@@ -2105,7 +2105,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Radio.bank
   Name: Radio
   StudioPath: bank:/Radio
-  lastModified: 639131895331777255
+  lastModified: 639132052774046677
   FileSizes:
   - Name: Desktop
     Value: 102176
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 639131895331461295
+  lastModified: 639132052774041583
   FileSizes:
   - Name: Desktop
     Value: 161280
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   Path: Assets/_Project/FMOD/Radio_protector/Build/Desktop/Ghost.bank
   Name: Ghost
   StudioPath: bank:/Ghost
-  lastModified: 639131895330463678
+  lastModified: 639132052773960529
   FileSizes:
   - Name: Desktop
     Value: 182496
