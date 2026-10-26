@@ -125,3 +125,5 @@ InitTestScene*.unity*
 fmod_editor.log
 
 .idea/
+.DS_Store
+.DotSettings
